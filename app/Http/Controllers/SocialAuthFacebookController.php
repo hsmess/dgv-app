@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use App\Services\SocialFacebookAccountService;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SocialAuthFacebookController extends Controller
 {
+
+    public function login()
+    {
+        return view('login');
+    }
     /**
      * Create a redirect method to facebook api.
      *
@@ -26,21 +31,19 @@ class SocialAuthFacebookController extends Controller
         $user = Socialite::driver('facebook')->user();
 
         // OAuth Two Providers
-        $token = $user->token;
-        $refreshToken = $user->refreshToken; // not always provided
-        $expiresIn = $user->expiresIn;
 
         // All Providers
-        $user->getId();
-        $user->getNickname();
-        $user->getName();
-        $user->getEmail();
-        $user->getAvatar();
+        $details['id'] = $user->getId();
+        $details['token'] = $user->token;
+        $details['expires'] =  $user->expiresIn;
+        $details['nickname'] = $user->getNickname();
+        $details['name'] = $user->getName();
+        $details['email'] = $user->getEmail();
+        $details['avatar'] = $user->getAvatar();
 
+        $app_user = User::firstOrCreate(['email' => $details['email']],['name'=>$details['name'],'avatar' => $details['avatar'],'password'=>bcrypt('unsecure')]);
 
-
-
-        auth()->login($user);
+        auth()->login($app_user);
         return redirect()->to('/home');
     }
 }

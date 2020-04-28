@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href="{{route('facebook_login')}}" class="btn btn-primary">Login with Facebook</a>
                 </div>
 
                 <div class="links">
