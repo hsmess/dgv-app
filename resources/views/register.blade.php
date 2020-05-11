@@ -20,7 +20,7 @@
                                     <div class="col-span-3 sm:col-span-2">
                                         <label for="disc_golf_valley_name"
                                                class="block text-sm font-medium leading-5 text-gray-700">
-                                            Disc Golf Valley Player Name<span class="text-red-500">*</span>
+                                            Current player name<span class="text-red-500">*</span>
                                         </label>
                                         <div class="mt-1 flex rounded-md shadow-sm">
                                             <input id="disc_golf_valley_name" name="disc_golf_valley_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />

@@ -17,10 +17,8 @@ class CreateTournamentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->dateTime('start_time');
-            $table->integer('max_players');
-            $table->integer('structure');
-            $table->integer('host_user_id');
-            $table->integer('state')->default(0);
+            $table->integer('status')->default(0);
+            $table->integer('format')->default(1);
             $table->timestamps();
         });
     }

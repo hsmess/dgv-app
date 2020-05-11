@@ -18,7 +18,7 @@ use MuxPhp\Models\CreateAssetRequest;
 use MuxPhp\Models\InputSettings;
 use MuxPhp\Models\PlaybackPolicy;
 
-class HomeController extends Controller
+class HopsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -36,14 +36,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function home()
-    {
-        return view('home');
-    }
 
-    public function test()
+    public function hops()
     {
-        return view('home2');
+        return view('hops');
     }
     public function upload(Request $request)
     {
@@ -76,6 +72,7 @@ class HomeController extends Controller
                  $url =  "https://stream.mux.com/" . $result->getData()->getPlaybackIds()[0]->getId() . ".m3u8";
                  $media = new DGVMedia();
                  $media->type = 1;
+                 $media->hops = true;
                  $media->url = $url;
                  $media->user_id = Auth::user()->id;
                  $media->save();
@@ -83,6 +80,7 @@ class HomeController extends Controller
              else{
                  $media = new DGVMedia();
                  $media->type = 0;
+                 $media->hops = true;
                  $media->url = $url;
                  $media->user_id = Auth::user()->id;
                  $media->save();
@@ -94,7 +92,11 @@ class HomeController extends Controller
 
     public function april()
     {
-        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',false)->with('user')->get();
+        if(!Auth::user()->name == 'Brandon Patrick')
+        {
+            return redirect()->back();
+        }
+        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',true)->with('user')->get();
         return view('april',compact('items'));
     }
     public function showMedia(DGVMedia $media)

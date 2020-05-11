@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTournamentRoundCardsTable extends Migration
+class CreateGroupsPlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTournamentRoundCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tournament_round_cards', function (Blueprint $table) {
+        Schema::create('groups_players', function (Blueprint $table) {
             $table->id();
-            $table->integer('tournament_round_id');
-            $table->integer('number_of_games')->default(1);
-            $table->integer('number_of_players_progress')->default(1);
+            $table->integer('group_id');
+            $table->integer('player_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateTournamentRoundCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tournament_round_cards');
+        Schema::dropIfExists('groups_players');
     }
 }

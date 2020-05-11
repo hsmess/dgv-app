@@ -16,9 +16,15 @@
                                     </h3>
                                     <p class="text-sm leading-5 text-gray-500">
                                 <span>
-                                    Player Name: <strong>{{Auth::user()->disc_golf_valley_name}}</strong>
+                                    Player Name: <strong>{{$player->dgv_name}}</strong>
                                 </span>
                                     </p>
+                                    <p class="text-sm leading-5 text-gray-500">
+                                        Total Players: <strong>{{$tournament->total_registered_players}}</strong>
+                                    </p>
+                                </div>
+                                <div class="left-5">
+
                                 </div>
                             </div>
                         </div>

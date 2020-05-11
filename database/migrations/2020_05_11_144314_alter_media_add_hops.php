@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTournamentPlayerScoresTable extends Migration
+class AlterMediaAddHops extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTournamentPlayerScoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('tournament_player_scores', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('d_g_v_media', function (Blueprint $table) {
+            $table->boolean('hops')->default(0);
         });
+
+
     }
 
     /**
@@ -26,6 +27,8 @@ class CreateTournamentPlayerScoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tournament_player_scores');
+        Schema::table('d_g_v_media', function (Blueprint $table) {
+            $table->dropColumn('hops');
+        });
     }
 }

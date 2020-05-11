@@ -18,6 +18,13 @@
     <link href="//vjs.zencdn.net/7.0/video-js.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+
     <script src="//vjs.zencdn.net/7.0/video.min.js"></script>
 </head>
 <body>
@@ -33,7 +40,7 @@
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Hub</a>
+                                    <a href="/tournaments" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Hub</a>
                                     @if(Auth::user()->is_admin)
                                     <a href="/stream" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Stream Dashboard</a>
                                     <a href="/tournaments" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Admin</a>

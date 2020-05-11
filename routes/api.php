@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/tournaments/{tournament}/start','Api\TournamentController@start');
+Route::get('/tournaments/{tournament}/round','Api\TournamentController@roundCompleted');
+Route::get('/tournaments/{tournament}/{status}','Api\TournamentController@updateStatus');

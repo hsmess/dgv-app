@@ -10,11 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 class TournamentController extends Controller
 {
-    public function start(Tournament $tournament)
+    public function updateStatus(Tournament $tournament, int $status)
     {
-        $tournament->state = 1;
+        $tournament->status = $status;
         $tournament->save();
-        event(new AdminNewMessage(['message' => 'hello world','state'=> 1]));
+        event(new AdminNewMessage(['message' => 'hello world','state'=> $status]));
+        if($status == 2)
+        {
+           $tournament->notifyAllPlayersOfStart();
+        }
+
+
+
+        return response()->json(true);
+    }
+    public function roundCompleted(Tournament $tournament, int $status)
+    {
+        //Handle the round completion
+        //event(new AdminNewMessage(['message' => 'hello world','state'=> $status]));
         return response()->json(true);
     }
 

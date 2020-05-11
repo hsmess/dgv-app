@@ -1,70 +1,108 @@
 <?php
 
 return [
-    'round_format' => [
-        0 => 'group',
-        1 => 'knock_out',
-        2 => 'knock_down',
-        3 => 'bracket_creator',
+    'formats' => [
+        1 => 'Harry & Rich present Tuesday Nights in the UK'
     ],
-    'structure' => [
-        0 => [
-            'number_of_games' => [3,1,1,1,1,1,1],
-            'master_structure' => [
-                1 => [
-                    1 => [9,12,13,16],
-                    2 => [10,11,14,15],
-                    3 => [10,11,14,15],
-                    4 => [9,12,13,16],
-                    5 => [9,12,13,16],
-                    6 => [10,11,14,15],
-                    7 => [10,11,14,15],
-                    8 => [9,12,13,16],
-                ],
-                2 => [
-                    9 => [17,20,21,24],
-                    10 => [18,19,22,23],
-                    11 => [19,18,23,22],
-                    12 => [24,21,20,17],
-                    13 => [17,20,21,24],
-                    14 => [18,19,22,23],
-                    15 => [19,18,23,22],
-                    16 => [24,21,20,17],
-                ],
-                3 => [
-                    17 => [25,25,27,30],
-                    18 => [26,26,28,29],
-                    19 => [25,25,29,28],
-                    20 => [26,26,30,27],
-                    21 => [27,27],
-                    22 => [28,28],
-                    23 => [29,29],
-                    24 => [30,30]
-                ],
-                4 => [
-                    25 => [31,31,32,34],
-                    26 => [31,31,33,32],
-                    27 => [32,34],
-                    28 => [33,34],
-                    29 => [34,33],
-                    30 => [33,32]
-                ],
-                5 => [
-                    31 => [37,37,35,36],
-                    32 => [35,36],
-                    33 => [36,35],
-                    34 => [35,36]
+    'statuses' => [
+        0 => 'Registration Open',
+        1 => 'Registration Closed',
+        2 => 'Started',
+        3 => 'Completed'
+    ],
+    'format_details' => [
+        1 => [
+            'players' => [
+                'min' => 12,
+                'max' => 192
+            ],
+            'rounds' => [
+                7 => [
+                    'name' =>'Actually the final',
+                    'games' => 1,
+                    'players_per_group_min' => 0,
+                    'players_per_group_max' => 4,
+                    'progression' => [
+                    ]
                 ],
                 6 => [
-                    35 => [37],
-                    36 => [37]
+                    'name' => 'Probably the Final. Or Maybe not if a lot of you showed up',
+                    'games' => 1,
+                    'players_per_group_min' => 2,
+                    'players_per_group_max' => 4,
+                    'progression' => [
+                        0 => [
+                            'condition' => 'round.groups > 1',
+                            'number' => 1,
+                            'round' => 7
+                        ]
+                    ]
                 ],
-                7 => [
-                    37 => []
+                5 => [
+                    'name' => 'Fives of Death',
+                    'games' => 1,
+                    'players_per_group_min' => 5,
+                    'players_per_group_max' => 5,
+                    'progression' => [
+                        0 => [
+                            'number' => 1,
+                            'round' => 6
+                        ]
+                    ]
+                ],
+                4 => [
+                    'name' => 'Last Chance Saloon',
+                    'games' => 1,
+                    'players_per_group_min' => 4,
+                    'players_per_group_max' => 8,
+                    'progression' => [
+                        0 => [
+                            'number' => 1,
+                            'round' => 5
+                        ]
+                    ]
+                ],
+                3 => [
+                    'name' => 'Post Group Seeding Round',
+                    'games' => 1,
+                    'players_per_group_min' => 4,
+                    'players_per_group_max' => 4,
+                    'progression' => [
+                        0 => [
+                            'number' => 4,
+                            'round' => 5
+                        ]
+                    ]
+                ],
+                2 => [
+                    'name' => 'Knock-down round',
+                    'games' => 1,
+                    'players_per_group_min' => 3,
+                    'players_per_group_max' => 6,
+                    'progression' => [
+                        0 => [
+                            'number' => 2,
+                            'round' => 3
+                        ],
+                        1 => [
+                            'number' => 4,
+                            'round' => 4
+                        ]
+                    ]
+                ],
+                1 => [
+                    'name' => 'Group Stage',
+                    'games' => 3,
+                    'players_per_group_min' => 3,
+                    'players_per_group_max' => 6,
+                    'progression' => [
+                        0 => [
+                            'number' => 6,
+                            'round' => 2
+                        ]
+                    ]
                 ]
-            ],
-            'group_first' => true,
-            'double_elim' => true
+            ]
         ]
     ]
 ];
