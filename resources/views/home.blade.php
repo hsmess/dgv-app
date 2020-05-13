@@ -22,7 +22,7 @@
                         <div class="max-w-md mx-auto lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5">
                             <a href="/hopsandhyzer">
                             <div class="rounded-lg shadow-lg overflow-hidden">
-                                <img src="/img/hops.png" alt="Workflow logo" />
+                                <img src="/img/hops2.png" alt="Workflow logo" />
                             </div>
                             </a>
                             <a href="/discgolfuk">
