@@ -12,10 +12,18 @@
                                 Name
                             </th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Upload Date
+                            </th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                 Type
                             </th>
-
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50">
+                                @if(isset($is_hops))
+                                <a href="/batch/increment?hops={{$is_hops}}" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-600 hover:bg-black focus:outline-none focus:border-gray-400 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
+                                    Start New Round
+                                </a>
+                                @endif
+                            </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -31,6 +39,11 @@
                                         <div class="text-sm leading-5 font-medium text-gray-900">{{$item->user->disc_golf_valley_name}}</div>
                                     </div>
                                 </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                               <span class="px-2 inline-flex text-xs leading-5 font-semibold">
+                                       {{$item->created_at->toDayDateTimeString()}}
+                               </span>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 @if($item->type == 0)

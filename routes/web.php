@@ -19,19 +19,22 @@ Route::get('','SocialAuthFacebookController@login')->name('login');
 
 Route::get('/home','HomeController@home')->name('home');
 Route::get('/discgolfuk','HomeController@test');
-Route::get('/april-livestream','HomeController@april');
+Route::get('/admin','HomeController@admin');
 Route::get('/show-media/{media}','HomeController@showMedia')->name('media');
 Route::post('/uppy','HomeController@upload')->name('uppy');
+Route::get('/video-history','HomeController@videoHistory');
 
 Route::post('/uppy-hops','HopsController@upload')->name('uppy-hops');
 Route::get('/hopsandhyzer','HopsController@hops')->name('hops');
 Route::get('/hopsandhyzer/admin','HopsController@april')->name('hopsadmin');
 Route::get('/hopsandhyzer/show-media/{media}','HopsController@showMedia')->name('hopsmedia');
-//
+Route::get('/hopsandhyzer/video-history','HopsController@videoHistory');
 //Route::get('/logout','AuthController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('facebook_login');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('/batch/increment','TournamentController@incrementBatch');
 //
 Route::group(['middleware'=>['auth']],function (){
     Route::get('/tournaments','TournamentController@index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Batch;
 use App\DGVMedia;
 use App\Tournament;
 use App\TournamentPlayer;
@@ -44,7 +45,7 @@ class HopsController extends Controller
     public function upload(Request $request)
     {
         $files = $request->file('files');
-
+        $batch = Batch::where('is_hops',true)->latest()->first()->id ?? 0;
          foreach($files as $file)
          {
              $path = Storage::disk('s3')->put('files', $file,'public');
@@ -74,6 +75,7 @@ class HopsController extends Controller
                  $media->type = 1;
                  $media->hops = true;
                  $media->url = $url;
+                 $media->batch_id = $batch;
                  $media->user_id = Auth::user()->id;
                  $media->save();
              }
@@ -82,6 +84,7 @@ class HopsController extends Controller
                  $media->type = 0;
                  $media->hops = true;
                  $media->url = $url;
+                 $media->batch_id = $batch;
                  $media->user_id = Auth::user()->id;
                  $media->save();
              }
@@ -92,12 +95,14 @@ class HopsController extends Controller
 
     public function april()
     {
+        $is_hops = true;
+        $batch = Batch::where('is_hops',$is_hops)->latest()->first()->id ?? 0;
         if(!Auth::user()->name == 'Brandon Patrick')
         {
             return redirect()->back();
         }
-        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',true)->with('user')->get();
-        return view('april',compact('items'));
+        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',$is_hops)->where('batch_id',$batch)->with('user')->get();
+        return view('april',compact('items','is_hops'));
     }
     public function showMedia(DGVMedia $media)
     {
@@ -124,5 +129,10 @@ class HopsController extends Controller
         }
         else return false;
 
+    }
+    public function videoHistory()
+    {
+        $items = DGVMedia::where('type',1)->orderBy('created_at','DESC')->where('hops',true)->with('user')->get();
+        return view('april',compact('items'));
     }
 }

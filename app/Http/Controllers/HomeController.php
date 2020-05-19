@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Batch;
 use App\DGVMedia;
 use App\Tournament;
 use App\TournamentPlayer;
@@ -48,6 +49,7 @@ class HomeController extends Controller
     public function upload(Request $request)
     {
         $files = $request->file('files');
+        $batch = Batch::where('is_hops',false)->latest()->first()->id ?? 0;
 
          foreach($files as $file)
          {
@@ -78,6 +80,7 @@ class HomeController extends Controller
                  $media->type = 1;
                  $media->url = $url;
                  $media->user_id = Auth::user()->id;
+                 $media->batch_id = $batch;
                  $media->save();
              }
              else{
@@ -85,6 +88,7 @@ class HomeController extends Controller
                  $media->type = 0;
                  $media->url = $url;
                  $media->user_id = Auth::user()->id;
+                 $media->batch_id = $batch;
                  $media->save();
              }
             return response()->json('success');
@@ -92,10 +96,12 @@ class HomeController extends Controller
          }
     }
 
-    public function april()
+    public function admin()
     {
-        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',false)->with('user')->get();
-        return view('april',compact('items'));
+        $is_hops = false;
+        $batch = Batch::where('is_hops',$is_hops)->latest()->first()->id ?? 0;
+        $items = DGVMedia::orderBy('created_at','DESC')->where('hops',$is_hops)->where('batch_id',$batch)->with('user')->get();
+        return view('april',compact('items','is_hops'));
     }
     public function showMedia(DGVMedia $media)
     {
@@ -122,5 +128,11 @@ class HomeController extends Controller
         }
         else return false;
 
+    }
+
+    public function videoHistory()
+    {
+        $items = DGVMedia::where('type',1)->orderBy('created_at','DESC')->where('hops',false)->with('user')->get();
+        return view('april',compact('items'));
     }
 }
