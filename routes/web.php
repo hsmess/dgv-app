@@ -29,6 +29,17 @@ Route::get('/hopsandhyzer','HopsController@hops')->name('hops');
 Route::get('/hopsandhyzer/admin','HopsController@april')->name('hopsadmin');
 Route::get('/hopsandhyzer/show-media/{media}','HopsController@showMedia')->name('hopsmedia');
 Route::get('/hopsandhyzer/video-history','HopsController@videoHistory');
+
+
+Route::post('/hof/uppy','HoFController@upload')->name('hof-uppy');
+Route::get('/hall-of-fame','HoFController@index')->name('hof-index');
+Route::get('/hall-of-fame/create','HoFController@create')->name('hof-create');
+Route::get('/player-profile','HoFController@profile')->name('profile');
+
+
+Route::get('/privacy','PolicyController@privacy');
+Route::get('/terms','PolicyController@terms');
+
 //Route::get('/logout','AuthController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('facebook_login');

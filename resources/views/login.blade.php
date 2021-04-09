@@ -148,12 +148,17 @@
 {{--                            </div>--}}
                         </div>
                     </div>
+                    <ul style="font-size: 8px">
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                    </ul>
                 </div>
                 <div class="hidden lg:block relative w-0 flex-1">
                     <img class="absolute inset-0 h-full w-full object-cover" src="/img/homepage.png" alt="" />
                 </div>
             </div>
         </div>
+
     </main>
 </div>
 </body>

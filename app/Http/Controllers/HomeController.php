@@ -116,6 +116,11 @@ class HomeController extends Controller
             $url = $media->url;
             return view('video',compact('url','user'));
         }
+        if($media->type == 2)
+        {
+            $url = $media->url;
+            return view('hof-show',compact('url','user'));
+        }
     }
 
     public function isVideo($file)

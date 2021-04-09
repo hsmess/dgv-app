@@ -34642,6 +34642,16 @@ time.icon em {
   color: #fd9f1b;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: revert;
+  font-weight: revert;
+}
+
 @media (min-width: 640px){
   .sm\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
