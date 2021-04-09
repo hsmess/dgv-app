@@ -14,4 +14,8 @@ class PolicyController extends Controller
     {
         return view('privacy');
     }
+    public function data()
+    {
+        return view('data');
+    }
 }

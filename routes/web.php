@@ -39,6 +39,7 @@ Route::get('/player-profile','HoFController@profile')->name('profile');
 
 Route::get('/privacy','PolicyController@privacy');
 Route::get('/terms','PolicyController@terms');
+Route::get('/data','PolicyController@data');
 
 //Route::get('/logout','AuthController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index')->name('home');
