@@ -10,7 +10,7 @@
                           SELECT YOUR GAME
                         </h2>
                         <p class="mt-2 text-3xl leading-9 font-extrabold text-white sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
-                            Please select which of our partners you are playing with
+                            Please select which tournament you are playing
                         </p>
                     </div>
                 </div>
@@ -22,14 +22,19 @@
                         <div class="max-w-md mx-auto lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5">
                             <a href="/hopsandhyzer">
                             <div class="rounded-lg shadow-lg overflow-hidden">
-                                <img src="/img/hops2.png" alt="Workflow logo" />
+                                <img src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hops.png" alt="Workflow logo" />
                             </div>
                             </a>
-                            <a href="/discgolfuk">
+                            <a href="/dynamic-discs-open">
                             <div class="mt-4 rounded-lg shadow-lg overflow-hidden lg:mt-0">
-                                <img src="/img/dguk.png" alt="Workflow logo" />
+                                <img src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/ddo.png" alt="Workflow logo" />
                             </div>
                             </a>
+{{--                            <a href="/discgolfuk">--}}
+{{--                                <div class="mt-4 rounded-lg shadow-lg overflow-hidden lg:mt-0">--}}
+{{--                                    <img src="/img/dguk.png" alt="Workflow logo" />--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                 </div>

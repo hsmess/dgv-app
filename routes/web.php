@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('','SocialAuthFacebookController@login')->name('login');
 
 Route::get('/home','HomeController@home')->name('home');
-Route::get('/discgolfuk','HomeController@test');
+Route::get('/dynamic-discs-open','HomeController@test');
+//Route::get('/discgolfuk','HomeController@test');
 Route::get('/admin','HomeController@admin');
 Route::get('/show-media/{media}','HomeController@showMedia')->name('media');
 Route::post('/uppy','HomeController@upload')->name('uppy');
