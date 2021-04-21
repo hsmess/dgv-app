@@ -6,9 +6,9 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Scorecards or Videos</h3>
+                        <img src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/ddo.png" alt="Workflow logo" />
                         <p class="mt-1 text-sm leading-5 text-gray-600">
-                            Please screenshot your scorecard at the end and upload it on your phone. Any highlights or lowlights can be screen-recorded and uploaded too and will be shown on stream!
+                            Any highlights or lowlights can be screen-recorded and uploaded and will be shown on stream!
                         </p>
                     </div>
                 </div>

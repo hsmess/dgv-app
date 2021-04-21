@@ -6,7 +6,7 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <img src="/img/hops2.png" alt="Workflow logo" />
+                        <img src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hops.png" alt="Workflow logo" />
                         <p class="mt-1 text-sm leading-5 text-gray-600">
                            Any highlights or lowlights can be screen-recorded and uploaded and will be shown on stream!
                         </p>
