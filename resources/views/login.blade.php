@@ -57,11 +57,11 @@
                     <div class="mx-auto w-full max-w-sm">
 
                         <div>
-                            <img class="h-12 w-auto" src="/img/icon.png" alt="Workflow" />
+                            <img class="h-45 w-auto" src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hopsandhyzer/h%26h.png" alt="Workflow" />
                             <p class="mt-2 text-sm leading-5 text-gray-600 max-w">
-                                Welcome to DGV Tournament Dashboard
+                                Welcome to Hops and Hyzer.  Website by
                                 <a href="https://dontshoot.blog" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                                    by Don't Shoot
+                                   Don't Shoot
                                 </a>
                             </p>
                             <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">

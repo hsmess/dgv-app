@@ -36,16 +36,14 @@
                     <div class="flex items-center justify-between h-16 px-4 sm:px-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-15 w-15" src="/img/icon.png" alt="Workflow logo" />
+                                <img class="h-15" src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hopsandhyzer/h%26h.png" alt="Workflow logo" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
-                                    <a href="/tournaments" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Hub</a>
+                                    <a href="/home" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Hub</a>
                                     @if(Auth::user()->is_admin)
-                                    <a href="/stream" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Stream Dashboard</a>
-                                    <a href="/tournaments" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Tournament Admin</a>
-                                    <a href="/players" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Players</a>
-                                    @endif
+                                    <a href="/admin" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Stream Dashboard</a>
+                                  @endif
                                     <a href="/privacy" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Privacy</a>
                                     <a href="/terms" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">T&C</a>
 

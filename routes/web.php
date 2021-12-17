@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //Auth::routes();
 Route::get('','SocialAuthFacebookController@login')->name('login');
 
-Route::get('/home','HomeController@home')->name('home');
+Route::get('/old/home','HomeController@home')->name('old-fhome');
 Route::get('/dynamic-discs-open','HomeController@test');
 //Route::get('/discgolfuk','HomeController@test');
 Route::get('/admin','HomeController@admin');
@@ -32,30 +34,35 @@ Route::get('/hopsandhyzer/show-media/{media}','HopsController@showMedia')->name(
 Route::get('/hopsandhyzer/video-history','HopsController@videoHistory');
 
 
-Route::post('/hof/uppy','HoFController@upload')->name('hof-uppy');
-Route::get('/hall-of-fame','HoFController@index')->name('hof-index');
-Route::get('/hall-of-fame/create','HoFController@create')->name('hof-create');
-Route::get('/player-profile','HoFController@profile')->name('profile');
+//Generic
+Route::get('/admin','EventAdminController@index');
+
+Route::get('/home','EventController@index')->name('home');
+Route::get('/event/{event}','EventController@show');
+Route::get('/admin/event/{event}','EventAdminController@show');
+Route::get('/admin/event/{event}/toggle','EventAdminController@toggle');
+Route::post('/event/{event}/upload','EventController@upload');
+Route::get('/show-media/{media}','EventController@showMedia');
+Route::get('/admin/event/show-media/{media}','EventController@showMedia');
+Route::get('/event/{event}/video-history','EventController@videoHistory');
+
+Route::get('/batch/increment','EventAdminController@incrementBatch');
 
 
 Route::get('/privacy','PolicyController@privacy');
 Route::get('/terms','PolicyController@terms');
 Route::get('/data','PolicyController@data');
+Route::get('/logout', function (Request $request){
+   Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+});
 
-//Route::get('/logout','AuthController@logout')->name('logout');
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('facebook_login');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
-Route::get('/batch/increment','TournamentController@incrementBatch');
+Route::get('/google-redirect', 'SocialAuthFacebookController@googleRedirect')->name('google_login');
+Route::get('/google-callback', 'SocialAuthFacebookController@googleCallback');
+//Route::get('/batch/increment','TournamentController@incrementBatch');
 //
-Route::group(['middleware'=>['auth']],function (){
-    Route::get('/tournaments','TournamentController@index');
-    Route::get('/tournaments/create','TournamentController@create');
-    Route::post('/tournaments/create','TournamentController@store');
-    Route::get('/tournaments/{tournament}/play','TournamentController@playerDashboard');
-    Route::get('/tournaments/{tournament}/admin','TournamentController@adminDashboard');
-//    Route::get('/tournaments/{tournament}/stream','TournamentController@streamerDashboard');
-    Route::post('/tournaments/{tournament}/register','TournamentController@register');
-    Route::get('/tournaments/{tournament}/register','TournamentController@showRegistration');
-});
