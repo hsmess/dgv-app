@@ -65,7 +65,7 @@
                                 </a>
                             </p>
                             <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
-                                Sign in to play
+                                Sign in:
                             </h2>
                         </div>
 
