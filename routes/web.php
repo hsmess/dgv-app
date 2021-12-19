@@ -66,8 +66,8 @@ Route::get('/google-redirect', 'SocialAuthFacebookController@googleRedirect')->n
 Route::get('/google-callback', 'SocialAuthFacebookController@googleCallback');
 //Route::get('/batch/increment','TournamentController@incrementBatch');
 //
-Route::get('admin/login-bypass',function (Request $request){
-    $user = \App\User::find(1);
-    Auth::login($user);
-    return redirect()->to('home');
-});
+//Route::get('admin/login-bypass',function (Request $request){
+//    $user = \App\User::find(1);
+//    Auth::login($user);
+//    return redirect()->to('home');
+//});
