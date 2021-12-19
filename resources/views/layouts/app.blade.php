@@ -36,7 +36,7 @@
                     <div class="flex items-center justify-between h-16 px-4 sm:px-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-15" src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hopsandhyzer/h%26h.png" alt="Workflow logo" />
+                                <img class="h-15" src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hopsandhyzer/hops_logo.png" alt="Workflow logo" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">

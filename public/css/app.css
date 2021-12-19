@@ -34597,6 +34597,22 @@ video {
   transition-delay: 1000ms;
 }
 
+.bg-indigo-500 {
+  background: #25ac56;
+}
+
+.bg-indigo-600 {
+  background: #1c8241;
+}
+
+.bg-indigo-700 {
+  background: #13582c;
+}
+
+.bg-gray-800 {
+  background: #1c8241;
+}
+
 time.icon {
   font-size: 0.75em;
   /* change icon size */
