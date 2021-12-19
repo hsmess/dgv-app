@@ -23,6 +23,20 @@ class EventAdminController extends Controller
 
         return view('show_event',compact('items','event'));
     }
+
+
+    public function videoLibrary(Event $event)
+    {
+        $batch = Batch::where('event_id',$event->id)->latest()->first()->id ?? 0;
+
+        $items = DGVMedia::orderBy('created_at','DESC')->where('event_id',$event->id)->where('batch_id','!=',$batch)->with('user')->get();
+        $is_library = true;
+        return view('show_event',compact('items','event','is_library'));
+    }
+
+
+
+
     public function toggle(Event $event)
     {
         $event->display_on_dash = !$event->display_on_dash;

