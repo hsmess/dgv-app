@@ -34613,6 +34613,10 @@ video {
   background: #1c8241;
 }
 
+.bg-gray-900 {
+  background: #13582c;
+}
+
 time.icon {
   font-size: 0.75em;
   /* change icon size */

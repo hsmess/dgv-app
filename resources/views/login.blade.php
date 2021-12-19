@@ -54,11 +54,11 @@
         <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
             <div class="min-h-screen bg-white flex">
                 <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-                    <div class="mx-auto w-full max-w-sm">
+                    <div class="mx-auto w-full max-w-sm text-center">
 
                         <div>
                             <img class="h-45 w-auto" src="https://discgolfvalley.s3.eu-west-2.amazonaws.com/hopsandhyzer/hops_logo.png" alt="Workflow" />
-                            <p class="mt-2 text-sm leading-5 text-gray-600 max-w">
+                            <p class="mt-2 text-sm leading-5 text-gray-600 max-w text-center">
                                 Welcome to the Hops and Hyzer Highlights Submission Page by
                                 <a href="https://dontshoot.blog" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                                    Don't Shoot
@@ -69,7 +69,7 @@
                             </h2>
                         </div>
 
-                        <div class="mt-8">
+                        <div class="mt-8 text-left">
                             <div>
                                 <div>
                                     <p class="text-sm leading-5 font-medium text-gray-700">
@@ -165,7 +165,7 @@
 {{--                            </div>--}}
                         </div>
                     </div>
-                    <ul style="font-size: 8px">
+                    <ul style="font-size: 8px" class="ml-3 sm:ml-0" >
                         <li><a href="/privacy">Privacy</a></li>
                         <li><a href="/terms">Terms</a></li>
                     </ul>

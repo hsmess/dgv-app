@@ -25,6 +25,9 @@
 .bg-gray-800{
     background: #1c8241;
 }
+.bg-gray-900{
+    background: darken(#1c8241,10%);
+}
 time.icon
 {
     font-size: 0.75em; /* change icon size */
