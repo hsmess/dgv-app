@@ -44,6 +44,7 @@ Route::get('/admin/event/{event}/toggle','EventAdminController@toggle');
 Route::post('/event/{event}/upload','EventController@upload');
 Route::get('/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/show-media/{media}','EventController@showMedia');
+Route::get('/admin/event/{event}/show-media/{media}','EventController@showMediaEvent');
 Route::get('/admin/event/{event}/video-library','EventAdminController@videoLibrary');
 
 Route::get('/batch/increment','EventAdminController@incrementBatch');

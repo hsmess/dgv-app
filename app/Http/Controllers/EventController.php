@@ -110,6 +110,19 @@ class EventController extends Controller
         }
     }
 
+    public function showMediaEvent(Event $event, DGVMedia $media)
+    {
+        $user = User::where('id', $media->user_id)->first();
+        if ($media->type == 0) {
+            $url = $media->url;
+            return view('image', compact('url', 'user'));
+        }
+        if ($media->type == 1) {
+            $url = $media->url;
+            return view('video', compact('url', 'user'));
+        }
+    }
+
 
 }
 
