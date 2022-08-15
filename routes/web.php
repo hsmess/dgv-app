@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use MuxPhp\Api\AssetsApi;
-use MuxPhp\Api\PlaybackIdApi;
+use MuxPhp\Api\PlaybackIDApi;
 use MuxPhp\Configuration;
 use MuxPhp\Models\CreateAssetRequest;
 use MuxPhp\Models\InputSettings;
@@ -92,7 +92,7 @@ Route::post('request-video-download',function (Request $request){
 
 
     //convert playback to asset id
-    $playbackIdApi = new MuxPhp\Api\PlaybackIdApi(
+    $playbackIdApi = new MuxPhp\Api\PlaybackIDApi(
         new GuzzleHttp\Client(),
         $config
     );
