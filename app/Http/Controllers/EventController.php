@@ -106,7 +106,8 @@ class EventController extends Controller
         }
         if ($media->type == 1) {
             $url = $media->url;
-            return view('video', compact('url', 'user'));
+            $mediaID = $media->id;
+            return view('video', compact('url', 'user','mediaID'));
         }
     }
 
@@ -119,7 +120,8 @@ class EventController extends Controller
         }
         if ($media->type == 1) {
             $url = $media->url;
-            return view('video', compact('url', 'user'));
+            $mediaID = $media->id;
+            return view('video', compact('url', 'user','mediaID'));
         }
     }
 

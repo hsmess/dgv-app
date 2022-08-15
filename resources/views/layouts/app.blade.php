@@ -26,6 +26,7 @@
     </style>
 
     <script src="//vjs.zencdn.net/7.0/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <div>

@@ -1,8 +1,15 @@
 <?php
 
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use MuxPhp\Api\AssetsApi;
+use MuxPhp\Api\PlaybackIdApi;
+use MuxPhp\Configuration;
+use MuxPhp\Models\CreateAssetRequest;
+use MuxPhp\Models\InputSettings;
+use MuxPhp\Models\PlaybackPolicy;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +74,81 @@ Route::get('/google-redirect', 'SocialAuthFacebookController@googleRedirect')->n
 Route::get('/google-callback', 'SocialAuthFacebookController@googleCallback');
 //Route::get('/batch/increment','TournamentController@incrementBatch');
 //
-//Route::get('admin/login-bypass',function (Request $request){
-//    $user = \App\User::find(1);
-//    Auth::login($user);
-//    return redirect()->to('home');
-//});
+Route::get('admin/login-bypass',function (Request $request){
+    $user = \App\User::find(1);
+    Auth::login($user);
+    return redirect()->to('home');
+});
+
+Route::post('request-video-download',function (Request $request){
+
+    $item = \App\DGVMedia::findOrFail($request->mediaID);
+
+    $muxID = substr(explode('/',$item->url)[3],0,-5);
+
+    $config = Configuration::getDefaultConfiguration()
+        ->setUsername(env('MUX_TOKEN_ID'))
+        ->setPassword(env('MUX_TOKEN_SECRET'));
+
+
+    //convert playback to asset id
+    $playbackIdApi = new MuxPhp\Api\PlaybackIdApi(
+        new GuzzleHttp\Client(),
+        $config
+    );
+
+    $pbPlaybackAssetGet = $playbackIdApi->getAssetOrLivestreamId($muxID);
+
+
+    // API Client Initialization
+    $assetsApi = new AssetsApi(
+        new Client(),
+        $config
+    );
+
+    $assetID = $pbPlaybackAssetGet['data']['object']['id'];
+
+
+    //see if we have download link for this video already
+    $waitingAsset = $assetsApi->getAsset($assetID);
+    if($waitingAsset['data']['master'])
+    {
+        $downloadURL = $waitingAsset['data']['master']['url'];
+    }
+    else{
+        $downloadURL = null;
+    }
+
+    if($downloadURL == null)
+    {
+
+        $updateAssetMasterAccessRequest = new MuxPhp\Models\UpdateAssetMasterAccessRequest(["master_access" => "temporary"]);
+        $assetWithMasterAccess = $assetsApi->updateAssetMasterAccess($assetID, $updateAssetMasterAccessRequest);
+
+
+        if($assetWithMasterAccess['data']['master'])
+        {
+            $downloadURL = $assetWithMasterAccess['data']['master']['url'];
+        }
+        else{
+            $downloadURL = null;
+        }
+
+        while($downloadURL == null)
+        {
+            sleep(1);
+            $waitingAsset = $assetsApi->getAsset($assetID);
+            if($waitingAsset['data']['master'])
+            {
+                $downloadURL = $waitingAsset['data']['master']['url'];
+            }
+            else{
+                $downloadURL = null;
+            }
+        }
+    }
+
+
+    return \Illuminate\Support\Facades\Response::json(['download_url'=>$downloadURL]);
+
+});
