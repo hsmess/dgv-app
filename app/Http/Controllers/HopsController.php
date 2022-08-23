@@ -107,15 +107,16 @@ class HopsController extends Controller
     public function showMedia(DGVMedia $media)
     {
         $user = User::where('id',$media->user_id)->first();
+        $item = $media;
         if($media->type == 0)
         {
             $url = $media->url;
-            return view('image',compact('url','user'));
+            return view('image',compact('url','user','item'));
         }
         if($media->type == 1)
         {
             $url = $media->url;
-            return view('video',compact('url','user'));
+            return view('video',compact('url','user','item'));
         }
     }
 

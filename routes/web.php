@@ -53,6 +53,7 @@ Route::get('/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/{event}/show-media/{media}','EventController@showMediaEvent');
 Route::get('/admin/event/{event}/video-library','EventAdminController@videoLibrary');
+Route::get('/admin/favourites','EventAdminController@favourites');
 
 Route::get('/batch/increment','EventAdminController@incrementBatch');
 

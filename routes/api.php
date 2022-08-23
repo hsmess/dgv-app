@@ -21,3 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/tournaments/{tournament}/round','Api\TournamentController@roundCompleted');
 Route::get('/tournaments/{tournament}/{status}','Api\TournamentController@updateStatus');
+
+
+Route::post('/unfavourite-media/{media}','Api\MediaController@unfavourite');
+Route::post('/favourite-media/{media}','Api\MediaController@favourite');
+Route::post('/ufa','Api\MediaController@ufa');

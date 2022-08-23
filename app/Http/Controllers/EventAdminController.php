@@ -34,6 +34,14 @@ class EventAdminController extends Controller
         return view('show_event',compact('items','event','is_library'));
     }
 
+    public function favourites()
+    {
+        $items = DGVMedia::orderBy('created_at','DESC')->where('favourite',true)->with('user')->get();
+        $is_library = true;
+        $event = null;
+        return view('show_event',compact('items','event','is_library'));
+    }
+
 
 
 
