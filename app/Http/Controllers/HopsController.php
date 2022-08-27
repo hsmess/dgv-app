@@ -66,7 +66,7 @@ class HopsController extends Controller
 
                  // Create Asset Request
                  $input = new InputSettings(["url" => $url]);
-                 $createAssetRequest = new CreateAssetRequest(["input" => $input, "playback_policy" => [PlaybackPolicy::PUBLIC_PLAYBACK_POLICY] ]);
+                 $createAssetRequest = new CreateAssetRequest(["input" => $input, "playback_policy" => [PlaybackPolicy::_PUBLIC]]);
 
                  // Ingest
                  $result = $assetsApi->createAsset($createAssetRequest);
