@@ -49,12 +49,10 @@
                                     Enable
                                 </a>
                                 @endif
-                                @if($item->order > 0)
-                                    <a href="admin/event/{{$item->slug}}/decrease-order" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 hover:bg-black focus:outline-none focus:border-orange-400 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
-                                        -
-                                    </a>
-                                @endif
-                                <a href="admin/event/{{$item->slug}}/increase-order" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 hover:bg-black focus:outline-none focus:border-orange-400 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
+                                <a href="admin/event/{{$item->slug}}/decrease-order" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white  bg-yellow-600 hover:bg-black focus:outline-none focus:border-orange-400 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
+                                    -
+                                </a>
+                                <a href="admin/event/{{$item->slug}}/increase-order" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white  bg-yellow-600 hover:bg-black focus:outline-none focus:border-orange-400 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
                                     +
                                 </a>
 
