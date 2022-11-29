@@ -12,7 +12,7 @@ class EventAdminController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Event::all()->sortBy('order');
         return view('admin_dashboard',compact('events'));
     }
     public function show(Event $event)
@@ -51,6 +51,20 @@ class EventAdminController extends Controller
         $event->save();
         return redirect()->back();
     }
+
+    public function increase(Event $event)
+    {
+        $event->order++;
+        $event->save();
+        return redirect()->back();
+    }
+    public function decrease(Event $event)
+    {
+        $event->order--;
+        $event->save();
+        return redirect()->back();
+    }
+
 
     public function incrementBatch(Request $request)
     {

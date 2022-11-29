@@ -55,6 +55,8 @@ Route::get('/home','EventController@index')->name('home');
 Route::get('/event/{event}','EventController@show');
 Route::get('/admin/event/{event}','EventAdminController@show');
 Route::get('/admin/event/{event}/toggle','EventAdminController@toggle');
+Route::get('/admin/event/{event}/increase-order','EventAdminController@increase');
+Route::get('/admin/event/{event}/decrease-order','EventAdminController@decrease');
 Route::post('/event/{event}/upload','EventController@upload');
 Route::get('/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/show-media/{media}','EventController@showMedia');

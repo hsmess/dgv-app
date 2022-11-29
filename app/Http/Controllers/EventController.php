@@ -26,7 +26,7 @@ class EventController extends Controller
 
     public function index()
     {
-        $events = Event::where('display_on_dash', true)->get();
+        $events = Event::where('display_on_dash', true)->orderBy('order')->get();
         return view('event_list', compact('events'));
     }
 
