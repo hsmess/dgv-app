@@ -24,7 +24,14 @@ use MuxPhp\Models\PlaybackPolicy;
 
 
 //Auth::routes();
-Route::get('','SocialAuthFacebookController@login')->name('login');
+
+Route::get('/',function (){
+   return redirect('https://linktr.ee/hopsandhyzer');
+});
+
+Route::get('/highlights','SocialAuthFacebookController@login')->name('login');
+
+
 
 Route::get('/old/home','HomeController@home')->name('old-fhome');
 Route::get('/dynamic-discs-open','HomeController@test');
