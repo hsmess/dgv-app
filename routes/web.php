@@ -25,12 +25,11 @@ use MuxPhp\Models\PlaybackPolicy;
 
 //Auth::routes();
 
-Route::get('/',function (){
-   return redirect('https://linktr.ee/hopsandhyzer');
+Route::get('/donate',function (){
+   return redirect('https://paypal.me/hopsandhyzer');
 });
 
 Route::get('/highlights','SocialAuthFacebookController@login')->name('login');
-
 
 
 Route::get('/old/home','HomeController@home')->name('old-fhome');
