@@ -25,6 +25,11 @@ use MuxPhp\Models\PlaybackPolicy;
 
 //Auth::routes();
 
+Route::get('/',function (){
+    return redirect('https://linktr.ee/hopsandhyzer');
+});
+
+
 Route::get('/donate',function (){
    return redirect('https://paypal.me/hopsandhyzer');
 });
