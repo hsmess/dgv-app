@@ -63,6 +63,7 @@ Route::get('/admin/event/{event}/increase-order','EventAdminController@increase'
 Route::get('/admin/event/{event}/decrease-order','EventAdminController@decrease');
 Route::post('/event/{event}/upload','EventController@upload');
 Route::get('/show-media/{media}','EventController@showMedia');
+Route::get('/admin/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/show-media/{media}','EventController@showMedia');
 Route::get('/admin/event/{event}/show-media/{media}','EventController@showMediaEvent');
 Route::get('/admin/event/{event}/video-library','EventAdminController@videoLibrary');
